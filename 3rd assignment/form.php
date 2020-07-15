@@ -1,15 +1,20 @@
-<html>
-<body>
-
-Welcome <?php echo (int)$_POST["name"]; ?><br>
-Your address is : <?php echo (int)$_POST["address"]; ?><br>
-Your phone number is : <?php echo (int)$_POST["phone"]; ?><br>
-Your gender is : <?php echo (int)$_POST["gender"]; ?><br>
-Your faculty is : <?php echo (int)$_POST["faculty"]; ?><br>
-Your class is : <?php echo (int)$_POST["class"]; ?><br>
-Your reason to join UAD Photography : <?php echo (int)$_POST["reason"]; ?>
-
-
-
-</body>
-</html> 
+<?php
+if(isset($_POST['submit'])){
+$name = "Name: ".$_POST['name']."\n";
+$address = "Address: ".$_POST['address']."\n";
+$phone = "Phone Number: ".$_POST['phone']."\n";
+$gender = "Gender: ".$_POST['gender']."\n";
+$faculty = "Faculty: ".$_POST['faculty']."\n";
+$class = "Class of: ".$_POST['class']."\n";
+$reason = "Reason to join Lensa UAD: ".$_POST['reason']."\n";
+$file=fopen("form.txt", "a+");
+fwrite($file, $name);
+fwrite($file, $address);
+fwrite($file, $phone);
+fwrite($file, $gender);
+fwrite($file, $faculty);
+fwrite($file, $class);
+fwrite($file, $reason);
+fclose($file);
+}
+?>
